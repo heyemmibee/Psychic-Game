@@ -12,7 +12,7 @@
 <body>
   <div>
       <h1>Welcome to The Psychic Computer</h1>
-      <h2>Guess what letter I'm thinking of... <br> press any letter to begin</h2>
+      <h2>Guess what letter I'm thinking of... <br> Press any letter to begin</h2>
       <img class="budha" src="./assets/images/asia-beautiful-believe-46177.jpg" alt="mystic image">
     <p id="wins-text"></p>
     <p id="losses-text"></p>
@@ -39,6 +39,13 @@
     document.onkeypress = function(event) {
     var userChoice = event.key.toLowerCase();
 
+    //BONUS-cant figure out how to prevent it to be added to guesses//
+    var LimitExists = /[a-z]/gi;
+    if (!LimitExists.test(userChoice)) {
+      alert("That's not a letter...")
+      guessRemain++;
+    }
+      
     // step 4, math equation for le randomization//
     var randomization = [Math.floor(Math.random() * alphabet.length)];
     var computerSelection = alphabet[randomization];
@@ -70,6 +77,10 @@
         guessLetters.push(userChoice);
         guessRemain--;
         console.log ("it's not " + userChoice + " guess again?");
+    }
+
+    if (userChoice === false) {
+      alert ("That's not a letter.. try again!")
     }
 
 // Display the user and computer guesses, wins and losses //
