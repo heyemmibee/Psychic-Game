@@ -61,8 +61,9 @@ if (userChoice === false) {
 }
 
 // Display the user and computer guesses, wins and losses //
-winsText.textContent = "Wins: " + wins;
-lossesText.textContent = "Losses: " + losses;
-GuessRemainText.textContent = "Guesses Left: " + guessRemain;
-GuessLetterText.textContent = "Your Guesses So Far: " + guessLetters;
+
+// winsText.textContent = "Wins: " + wins;
+// lossesText.textContent = "Losses: " + losses;
+// GuessRemainText.textContent = "Guesses Left: " + guessRemain;
+// GuessLetterText.textContent = "Your Guesses So Far: " + guessLetters;
 }
