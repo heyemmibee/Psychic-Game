@@ -4,15 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <title>The Pychic Computer</title>
-  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
   <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
   <script src="./assets/javascript/game.js"></script>
 </head>
 
 <body>
   <div>
       <h1>Welcome to The Psychic Computer</h1>
-      <h2>Guess what letter I'm thinking of... Press any key to begin</h2>
+      <h2>Guess what letter I'm thinking of... <br> press any letter to begin</h2>
+      <img class="budha" src="./assets/images/asia-beautiful-believe-46177.jpg" alt="mystic image">
     <p id="wins-text"></p>
     <p id="losses-text"></p>
     <p id="guess-remain-text"></p>
@@ -51,6 +52,7 @@
         computerSelection = alphabet[randomization];
         guessRemain = 10; 
         console.log("You guessed it! Wow, you must be psychic!");
+        alert (userChoice + " is CORRECT! You must be psychic!");
     }
 
     if (guessRemain <= 0) {
@@ -61,6 +63,7 @@
         computerSelection = alphabet[randomization];
         guessRemain = 10; 
         console.log("Sorry you lost, you're definitely not psychic...");
+        alert ("You're out of guesses, try again!");
     }
 
     else {
@@ -74,8 +77,6 @@
     lossesText.textContent = "Losses: " + losses;
     GuessRemainText.textContent = "Guesses Left: " + guessRemain;
     GuessLetterText.textContent = "Your Guesses So Far: " + guessLetters;
-
-// still need to log... and it's not working //
 
 }
 </script>

@@ -1,5 +1,7 @@
-
-    //step 1, define le variables & array//
+//  for whatever reason the when I put the code here in javascript my functions don't work. 
+//  it says there's an error in lines 46 - 50?
+ 
+ //step 1, define le variables & array//
     var wins = 0;
     var losses = 0;
     var guessRemain = 10;
@@ -48,10 +50,10 @@
     }
 
 // Display the user and computer guesses, wins and losses //
-    winsText.textContent = "Wins: " + wins;
-    lossesText.textContent = "Losses: " + losses;
-    GuessRemainText.textContent = "Guesses Left: " + guessRemain;
-    GuessLetterText.textContent = "Your Guesses So Far: " + guessLetters;
+    winsText.textContent = ("Wins: " + wins);
+    lossesText.textContent = ("Losses: " + losses);
+    GuessRemainText.textContent = ("Guesses Left: " + guessRemain);
+    GuessLetterText.textContent = ("Your Guesses So Far: " + guessLetters);
 
 // still need to log... and it's not working //
 }
