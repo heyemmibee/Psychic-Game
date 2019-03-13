@@ -61,6 +61,10 @@ if (userChoice === false) {
 }
 
 // Display the user and computer guesses, wins and losses //
+document.getElementById("wins-text").innerHTML = ("Wins: " + wins);
+document.getElementById("losses-text").innerHTML = ("Losses: " + losses);
+document.getElementById("guess-remain-text").innerHTML = ("Guesses Left: " + guessRemain);
+document.getElementById("guess-letter-text").innerHTML = ("Your Guesses So Far: " + guessLetters);
 
 // winsText.textContent = "Wins: " + wins;
 // lossesText.textContent = "Losses: " + losses;
