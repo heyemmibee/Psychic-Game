@@ -3,23 +3,25 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>The Pychic Computer</title>
   <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
   <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-  <script src="./assets/javascript/game.js"></script>
 </head>
 
 <body>
   <div>
       <h1>Welcome to The Psychic Computer</h1>
-      <h2>Guess what letter I'm thinking of... <br> Press any letter to begin</h2>
+      <h2>This is a letter guessing game. I'm thinking of a letter...<br> Press any letter to begin</h2>
       <img class="budha" src="./assets/images/asia-beautiful-believe-46177.jpg" alt="mystic image">
-    <p id="wins-text"></p>
-    <p id="losses-text"></p>
-    <p id="guess-remain-text"></p>
-    <p id="guess-letter-text"></p>
+      <p>Your Remaining Guesses: <span id="guess-remain-text"></span></p>
+      <p>Your Guessed Letters: <span id="guess-letter-text"></span></p>
+      <p>WINS!: <span id="wins-text"></span></p>
+      <p>LOSSES!: <span id="losses-text"></span></p>
+      
   </div>
-
+  <script src="./assets/javascript/game.js"></script>
 </body>
 </html>
 

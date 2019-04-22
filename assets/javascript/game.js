@@ -1,73 +1,65 @@
-//my javascript file isn't working.... help...
-//step 1, define le variables & array
+//setting up the variables
+var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+var guessLetters = [];
+var guessRemain = 9;
 var wins = 0;
 var losses = 0;
-var guessRemain = 10;
-var guessLetters = [];
-var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+var letter = null;
 
-//step 2, variables that hold references to places defined in HTML//
-var winsText = document.getElementById("wins-text");
-var lossesText = document.getElementById("losses-text");
-var GuessRemainText = document.getElementById("guess-remain-text");
-var GuessLetterText = document.getElementById("guess-letter-text");
+//defining 4 functions, last one is for reset
+var updateguess = function() {
+    letter = alphabet[Math.floor(Math.random() * alphabet.length)];
+};
 
-// step 3, key pressing function for determining key pressed //
-document.onkeypress = function(event) {
-var userChoice = event.key.toLowerCase();
+var updateguessesleft = function() {
+    document.querySelector("#guess-remain-text").innerHTML = guessRemain;
+};
 
-//BONUS-THE LIMIT EXISTS//
-var LimitExists = /[a-z]/gi;
-if (!LimitExists.test(userChoice)) {
-  alert("That's not a letter...")
-  guessRemain++;
-}
+var updatelettersguessed = function() {
+    document.querySelector("#guess-letter-text").innerHTML = guessLetters.join(", ");
+};
 
-// step 4, math equation for le randomization//
-var randomization = [Math.floor(Math.random() * alphabet.length)];
-var computerSelection = alphabet[randomization];
-
-//step 5, main process logic to determine result of key presses: wins/losses/guesses/remaining
-if (computerSelection === userChoice) {
-    wins++;
+var reset = function () {
+    guessRemain = 9;
     guessLetters = [];
-    //restart the game without refreshing//
-    randomization = [Math.floor(Math.random() * alphabet.length)];
-    computerSelection = alphabet[randomization];
-    guessRemain = 10; 
+    updateguess();
+    updateguessesleft();
+    updatelettersguessed();
+};
+
+//execute on page load
+updateguess();
+updateguessesleft();
+
+// key pressing function for determining key pressed //
+document.onkeypress = function(event) {
+    guessRemain--;
+    var userChoice = event.key.toLowerCase();
+    guessLetters.push(userChoice);
+    updatelettersguessed();
+    updateguessesleft();
+
+//what if... right or wrong
+if (userChoice === letter) {
+    wins++;
+    document.querySelector("#wins-text").innerHTML = wins;
     console.log("You guessed it! Wow, you must be psychic!");
     alert (userChoice + " is CORRECT! You must be psychic!");
+    reset();
 }
 
-if (guessRemain <= 0) {
+//this doesn't seem to be working... giving up for now...?
+if (guessRemain <=0) {
     losses++;
-    guessLetters = [];
-    //restart the game without refreshing//
-    randomization = [Math.floor(Math.random() * alphabet.length)];
-    computerSelection = alphabet[randomization];
-    guessRemain = 10; 
-    console.log("Sorry you lost, you're definitely not psychic...");
-    alert ("You're out of guesses, try again!");
+    document.querySelector("losses-text").innerHTML = losses;
+    console.log("Sorry you lost, your mind feels a bit fuzzy...");
+    alert ("You're out of guesses, try again?");
+    reset();
 }
-
-else {
-    guessLetters.push(userChoice);
-    guessRemain--;
-    console.log ("it's not " + userChoice + " guess again?");
-}
-
-if (userChoice === false) {
-  alert ("That's not a letter.. try again!")
-}
-
-// Display the user and computer guesses, wins and losses //
-document.getElementById("wins-text").innerHTML = ("Wins: " + wins);
-document.getElementById("losses-text").innerHTML = ("Losses: " + losses);
-document.getElementById("guess-remain-text").innerHTML = ("Guesses Left: " + guessRemain);
-document.getElementById("guess-letter-text").innerHTML = ("Your Guesses So Far: " + guessLetters);
-
-// winsText.textContent = "Wins: " + wins;
-// lossesText.textContent = "Losses: " + losses;
-// GuessRemainText.textContent = "Guesses Left: " + guessRemain;
-// GuessLetterText.textContent = "Your Guesses So Far: " + guessLetters;
-}
+    //BONUS-THE LIMIT EXISTS//
+    var LimitExists = /[a-z]/gi;
+    if (!LimitExists.test(userChoice)) {
+      alert("That's not a letter...")
+    }
+    
+};
