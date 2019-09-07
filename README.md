@@ -17,8 +17,8 @@ Not needed
 ## Built With
  
 * [JavaScript](https://www.javascript.com/) - Programming language.
-* [HTML]
-* [CSS]
+* HTML - Hypertext Markup Language 
+* CSS - Cascading Style Sheets
 
 ## Contributing
 
